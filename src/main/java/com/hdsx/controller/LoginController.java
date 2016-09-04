@@ -17,9 +17,9 @@ import org.springframework.ui.Model;
 
 @Controller
 @RequestMapping("/login")
-public class LoginController {
-	
+public class LoginController {	
 	private final Logger LOG = LoggerFactory.getLogger(this.getClass());
+	
 	@Autowired
 	UserService userInfoService;
 	
@@ -67,6 +67,8 @@ public class LoginController {
 		if (logined != null && logined) {
 			session.setAttribute(TextUtils.LOGIN_IN, false);
 		}
+		// 也可以清除session
+		//session.invalidate();
 		return "redirect:/login";
 	}
 }
